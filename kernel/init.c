@@ -1,11 +1,11 @@
 #include <stdint.h>
 #include <kernel.h>
+#include <stivale.h>
 
 uint32_t memory_size;
 extern int ts_enable;
 
-void kernel_init(void) {
-
+void kernel_init(struct stivale_struct *stivale_struct) {
     #ifdef _SERIAL_KERNEL_OUTPUT_
       debug_kernel_console_init();
     #endif
@@ -52,7 +52,7 @@ void kernel_init(void) {
     kputs("\nInitialising drivers...");
     // ******* DRIVER INITIALISATION CALLS GO HERE *******
     init_streams();
-    init_initramfs();
+    init_initramfs(stivale_struct);
     init_tty_drv();
     init_bios_harddisks();
     init_ata();

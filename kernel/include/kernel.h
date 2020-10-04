@@ -4,6 +4,7 @@
 #define __KERNEL_H__
 
 #include <stdint.h>
+#include <stivale.h>
 
 // kernel tunables
 
@@ -114,7 +115,7 @@ void init_streams(void);
 void init_com(void);
 void init_stty(void);
 void init_graphics(void);
-void init_initramfs(void);
+void init_initramfs(struct stivale_struct *);
 
 void graphics_init(vbe_info_struct_t* vbe_info_struct);
 
