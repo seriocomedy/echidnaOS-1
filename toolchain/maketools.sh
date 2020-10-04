@@ -213,6 +213,10 @@ make all
 make DESTDIR="$DESTDIR" install
 cd ..
 cp -rv $DESTDIR/usr/i386-echidnaos/* "$DESTDIR/usr/"
+
+cp newlib-patch/newlib/libc/sys/echidnaos/sys_api.h usr/include/
+cp newlib-patch/newlib/libc/sys/echidnaos/sys_api.h usr/i386-echidnaos/include/
+
 unset DESTDIR
 export PATH="$CLEANPATH"
 
